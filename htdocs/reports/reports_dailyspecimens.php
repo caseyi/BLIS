@@ -177,26 +177,44 @@ $(document).ready(function(){
 		?>>Portrait</input>
 		&nbsp;&nbsp;
 		<input type='radio' name='do_landscape' value='Y' <?php
+<<<<<<< HEAD
 		if($report_config->landscape == true) echo " checked ";
 		?>>Landscape</input>&nbsp;&nbsp;
+=======
+		//if($report_config->landscape == true) echo " checked ";
+		?>><?php echo LangUtil::$generalTerms['LANDSCAPE_TYPE']; ?></input>&nbsp;&nbsp;
+>>>>>>> 8b8203b... Translation to French
 <input type='button' onclick="javascript:print_content('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_PRINT']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <input type='button' onclick="javascript:export_as_word('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTWORD']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <!--TA:65 -->
 <input type='button' onclick="javascript:export_as_csv('report_content_table4');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTCSV']; ?>'></input>
+<<<<<<< HEAD
 &nbsp;&nbsp;&nbsp;&nbsp;
 <?php if($_REQUEST['ip']==1){?><input type='checkbox' name='ip' id='ip' checked ></input> <?php echo "All Tests"; ?>
 <?php } else{?><input type='checkbox' name='ip' id='ip'></input> <?php echo "All Tests"; }?>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <?php if($_REQUEST['p']==1){?><input type='checkbox' name='p' id='p' checked ></input> <?php echo "Only Pending"; ?>
 <?php } else{?><input type='checkbox' name='p' id='p'></input> <?php echo "Only Pending"; }?>
+=======
+&nbsp;&nbsp;
+<?php if($_REQUEST['ip']==1){?><input type='radio' name='ip' id='ip' checked ></input> <?php echo LangUtil::$generalTerms['ALL_TESTS']; ?>
+<?php } else{?><input type='radio' name='ip' id='ip'></input> <?php echo LangUtil::$generalTerms['ALL_TESTS']; }?>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<?php if($_REQUEST['p']==1){?><input type='radio' name='ip' id='p' checked ></input> <?php echo LangUtil::$generalTerms['ONLY_PENDING']; ?>
+<?php } else{?><input type='radio' name='ip' id='p'></input> <?php echo LangUtil::$generalTerms['ONLY_PENDING']; }?>
+>>>>>>> 8b8203b... Translation to French
 &nbsp;&nbsp;&nbsp;&nbsp;
 <input type='button' onclick="javascript:report_fetch();" value='<?php echo LangUtil::$generalTerms['CMD_VIEW']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <input type='button' onclick="javascript:window.close();" value='<?php echo LangUtil::$generalTerms['CMD_CLOSEPAGE']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
+<<<<<<< HEAD
 <?php $page_elems->getTableSortTip(); ?>
+=======
+<?php $page_elems->getTableSortTip(); echo "<small>" . LangUtil::$generalTerms['DGAR_TABLE_COLUMNS'] . "</small>";?>
+>>>>>>> 8b8203b... Translation to French
 <hr>
 
 <div id='export_content'>
@@ -204,8 +222,13 @@ $(document).ready(function(){
 <style type='text/css'>
 	<?php $page_elems->getReportConfigCss($margin_list, false); ?>
 </style>
+<<<<<<< HEAD
 <div id='report_config_content'>
 <h3><?php echo $report_config->headerText; ?></h3>
+=======
+<div id='report_config_content' style='display:block;'>
+<h3><?php echo LangUtil::$pageTerms[$report_config->headerText]; ?></h3>
+>>>>>>> 8b8203b... Translation to French
 <h3><?php echo $report_config->titleText; ?></h3>
 <?php
  if($date_from == $date_to)
@@ -315,7 +338,11 @@ if($no_match === true)
 			<?php
 			if($report_config->useDailyNum == 1)
 			{
+<<<<<<< HEAD
 				echo "<th>".LangUtil::$generalTerms['PATIENT_DAILYNUM']."</th>";
+=======
+				echo "<th>" . LangUtil::$generalTerms['VISIT_NUMBER'] . "</th>";
+>>>>>>> 8b8203b... Translation to French
 			}
 			if($report_config->useSpecimenAddlId != 0)
 			{
@@ -390,11 +417,19 @@ if($no_match === true)
 			}
 			if($report_config->useTestName == 1)
 			{
+<<<<<<< HEAD
 				echo "<th>".LangUtil::$generalTerms['TEST']."</th>";
 			}
 			if($report_config->useComments == 1)
 			{
 				echo "<th>".LangUtil::$generalTerms['COMMENTS']."</th>";
+=======
+				echo "<th>".LangUtil::$generalTerms['TEST_TYPE']."</th>";
+			}
+			if($report_config->useComments == 1)
+			{
+				echo "<th>".LangUtil::$generalTerms['INTERPRETATION']."</th>";
+>>>>>>> 8b8203b... Translation to French
 			}
 			if($report_config->useReferredTo == 1)
 			{

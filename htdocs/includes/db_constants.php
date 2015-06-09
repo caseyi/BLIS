@@ -22,6 +22,7 @@ if($SERVER == $ON_ARC)
 
 $DB_HOST = "localhost";
 $DB_USER = "root";
+<<<<<<< HEAD
 // $d = dirname(__FILE__);
 // $name= strrpos($d,"htdocs");
 // //if($name === false)
@@ -57,6 +58,24 @@ else if($SERVER == $ON_ARC)
 else if($SERVER == $ON_PORTABLE)
 {
 	$DB_PASS = "";
+=======
+$GLOBAL_DB_NAME="blis_revamp";
+$DB_NAME = $GLOBAL_DB_NAME;	
+
+$DB_PASS = ""; //1234";
+
+if($SERVER == $ON_DEV)
+{
+	$DB_PASS = ""; //"1234";
+}
+else if($SERVER == $ON_ARC)
+{
+	$DB_PASS = ""; //"1234";
+}
+else if($SERVER == $ON_PORTABLE)
+{
+	$DB_PASS = ""; //"1234";
+>>>>>>> 8b8203b... Translation to French
 }
 
 if(isset($_SESSION['username']))

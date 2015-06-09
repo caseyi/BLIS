@@ -25,6 +25,7 @@
 include("db_close.php");
 LangUtil::setPageId("footer");
 ?>
+<<<<<<< HEAD
 
 
 </div><!-- end of center_pane-->
@@ -35,6 +36,19 @@ LangUtil::setPageId("footer");
 	<div class='footer_message'>
 		<small>
 		
+=======
+</div>
+			<!-- END PAGE CONTAINER-->		
+		</div>
+		<!-- END PAGE -->
+	</div>
+	<!-- END CONTAINER -->
+	<!-- BEGIN FOOTER -->
+	<div class="footer">
+			<center>
+				<small>
+		<a href='userguide/BLIS_User_Guide.pdf' target='_blank' ><?php echo LangUtil::$generalTerms['USER_GUIDE']; ?> |</a>
+>>>>>>> 8b8203b... Translation to French
 		<?php
 		if($_SESSION['locale'] == "en")
 		{
@@ -50,9 +64,16 @@ LangUtil::setPageId("footer");
 		}
 		?>
 		
+<<<<<<< HEAD
 		<a rel='facebox' href='feedback/comments.php?src=<?php echo $_SERVER['PHP_SELF']; ?>'><?php echo "Comments" ?>?</a> |
 		C4G BLIS v<?php echo $VERSION; ?> - <?php echo LangUtil::getPageTerm("FOOTER_MSG"); ?>
 		<?php
+=======
+		<a rel='facebox' href='feedback/comments.php?src=<?php echo $_SERVER['PHP_SELF']; ?>'><?php echo LangUtil::$generalTerms['COMMENTS'] ?>?</a> |
+		C4G BLIS v<?php echo $VERSION; ?> - <?php echo LangUtil::$allTerms["FOOTER_MSG"]; ?>
+		<?php
+		//TA: this part was commented out, I removed this comments
+>>>>>>> 8b8203b... Translation to French
 		if($_SESSION['locale'] !== "en")
 		{
 			?>
@@ -72,17 +93,14 @@ LangUtil::setPageId("footer");
 		else
 		{
 			echo " | Francais";
+			$str = utf8_encode("Facilité");
+			//$str = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+			echo " |  $str";
 		}
-		if($_SESSION['locale'] !== "default")
-		{
-			?>
-			 | <a href='lang_switch?to=default'><?php echo "Default"; ?></a>
+		?>
+			 
 			<?php
-		}
-		else
-		{
-			echo " | Default";
-		}
+
 		/*Change Theme: <a href=javascript:changeTheme('Blue');>Blue</a> | <a href=javascript:changeTheme('Grey');>Grey*/
 		if($TRACK_LOADTIME)
 		{

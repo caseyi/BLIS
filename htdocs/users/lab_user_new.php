@@ -251,6 +251,7 @@ $(document).ready(function(){
 			</td>
 		</tr>
 		<tr>
+<<<<<<< HEAD
 		  
 		 	<td> <div id="readOrWrite" name="readOrWrite" > Writeable Options </div><?php $page_elems->getAsterisk(); ?>
 		 	</td>
@@ -265,6 +266,19 @@ $(document).ready(function(){
 				</div>
 		 	</td>
 		</tr>
+=======
+                                    <td><?php echo LangUtil::$generalTerms['LAB_SECTION']; ?></td>
+                                    <td>
+                                        <select name="cat_code12[]" id="labsec" class="medium m-wrap tooltip-examples" rows="3" multiple="multiple" data-toggle="tooltip" data-original-title="Use CTRL or SHIFT to select multiple lab sections">
+                                            
+                                            <?php $page_elems->getTestCategorySelectOption(); ?>
+                                        </select>
+                                        <td>
+                                        <input type="checkbox" id="mrk_all" onclick="javascript:selectDeselect();"><?php echo LangUtil::$generalTerms['MARK_ALL']; ?></input>
+                                        </td>
+                                    </td>
+                                </tr>
+>>>>>>> 8b8203b... Translation to French
 		<!--
 		<tr valign='top'>
 			<td><?php #echo LangUtil::$generalTerms['USER_FUNCTIONS']; ?><?php #$page_elems->getAsterisk(); ?>&nbsp;&nbsp;&nbsp;&nbsp;</td>
