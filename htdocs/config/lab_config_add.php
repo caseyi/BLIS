@@ -122,7 +122,6 @@ for($i = 0; $i < count($user_list); $i++)
 	$user->createdBy = $_SESSION['user_id'];
 	$user->labConfigId = $lab_config_id;
 	$user->langId = "default";
-	$user->rwoptions = "2,3,4,6,7";
 	add_user($user);
 }
 
@@ -198,8 +197,11 @@ foreach($selected_test_list as $test_type_id)
 ###################
 
 # Create new langdata folder for this lab
-chmod($LOCAL_PATH."langdata_revamp", 777);
-chmod($LOCAL_PATH."langdata_".$lab_config_id, 777);
+// BS 20160303 http://dev.trainingdata.org/redmine/issues/173 - "Backup function doesn't work"
+// PHP's chmod() function expects octal numbers for UNIX permissions - use a leading 0
+// previous 0777 permissions are also a security hole.
+chmod($LOCAL_PATH."langdata_revamp", 0755);
+chmod($LOCAL_PATH."langdata_".$lab_config_id, 0755);
 mkdir($LOCAL_PATH."langdata_".$lab_config_id);
 # Copy contents from langdata_revamp into this new folder
 //copy($LOCAL_PATH."langdata_revamp", $LOCAL_PATH."langdata_".$lab_config_id);

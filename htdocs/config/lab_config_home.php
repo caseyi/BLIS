@@ -231,11 +231,12 @@ $script_elems->enableJQueryForm();
 
 <?php
 
-$lab_config_id = $_REQUEST['id'];
+$lab_config_id = $_SESSION['lab_config_id'];
+#$lab_config_id = $_REQUEST['id'];
 $user = get_user_by_id($_SESSION['user_id']);
 if ( !((is_country_dir($user)) || (is_super_admin($user)) ) ) {
 	$saved_db = DbUtil::switchToGlobal();
-	$query = "SELECT lab_config_id FROM lab_config WHERE admin_user_id = ".$_SESSION['user_id'];
+        $query = "SELECT lab_config_id FROM lab_config WHERE admin_user_id = ".$_SESSION['user_id'];
 	$record = query_associative_one($query);
 	$labId = $record['lab_config_id'];
 	if($labId != $lab_config_id) {

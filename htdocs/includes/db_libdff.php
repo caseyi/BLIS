@@ -224,7 +224,7 @@ class LabConfig
 		
 		global $con;
 		//$lab_config_id = mysql_real_escape_string($lab_config_id, $con);
-		$query_config = "SELECT * FROM lab_config WHERE lab_config_id = $lab_config_id LIMIT 1";
+		$query_config = "sELECT * FROM lab_config WHERE lab_config_id = $lab_config_id LIMIT 1";
 		$record = query_associative_one($query_config);
 		DbUtil::switchRestore($saved_db);
 		return LabConfig::getObject($record);

@@ -107,6 +107,8 @@ else if($cat_code != 0)
 	$test_types = array_values($matched_test_ids);
 }
 ?>
+
+<script type="text/javascript" src="js/table2CSV.js"></script>
 <script type='text/javascript'>
 function export_as_word(div_id)
 {
@@ -135,6 +137,15 @@ function report_fetch()
 	window.open(url);
 	}
 
+//TA:65
+function export_as_csv(table_id)
+{
+	// BS - http://dev.trainingdata.org/redmine/issues/174 - filter out &nbsp;
+	var content = $('#'+table_id).table2CSV({delivery:'value'}).replace(/&nbsp;/gi, '');
+	$("#csv_data").val(content);
+	$('#csv_format_form').submit();
+}
+
 function print_content(div_id)
 {
 	var DocumentContainer = document.getElementById(div_id);
@@ -157,6 +168,10 @@ $(document).ready(function(){
 <form name='word_format_form' id='word_format_form' action='export_word.php' method='post' target='_blank'>
 	<input type='hidden' name='data' value='' id='word_data' />
 </form>
+
+<form name='csv_format_form' id='csv_format_form' action='export_csv.php' method='post' target='_blank'> 
+	<input type='hidden' name='csv_data' id='csv_data'>
+</form>
 		<input type='radio' name='do_landscape' value='N'<?php
 		if($report_config->landscape == false) echo " checked ";
 		?>>Portrait</input>
@@ -167,6 +182,9 @@ $(document).ready(function(){
 <input type='button' onclick="javascript:print_content('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_PRINT']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <input type='button' onclick="javascript:export_as_word('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTWORD']; ?>'></input>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<!--TA:65 -->
+<input type='button' onclick="javascript:export_as_csv('report_content_table4');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTCSV']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <?php if($_REQUEST['ip']==1){?><input type='checkbox' name='ip' id='ip' checked ></input> <?php echo "All Tests"; ?>
 <?php } else{?><input type='checkbox' name='ip' id='ip'></input> <?php echo "All Tests"; }?>

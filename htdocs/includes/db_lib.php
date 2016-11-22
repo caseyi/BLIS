@@ -613,12 +613,12 @@ class LabConfig
 			return $lab_config;
 	}
 
-	
+	//qwerty
 	public static function getById($lab_config_id) {
 		$saved_db = DbUtil::switchToGlobal();
 		//global $con;
-		//$lab_config_id = mysql_real_escape_string($lab_config_id, $con);
-		$query_config = "SELECT * FROM lab_config WHERE lab_config_id = $lab_config_id LIMIT 1";
+		$lab_config_id = 127;
+		$query_config = "SeLECT * FROM lab_config WHERE lab_config_id = $lab_config_id LIMIT 1";
 		$record = query_associative_one($query_config);
 		DbUtil::switchRestore($saved_db);
 		//echo "from db sid ".$record['sid'];
@@ -2296,7 +2296,7 @@ class Measure
 		$saved_db = DbUtil::switchToLabConfigRevamp();
 		$query_string = 
 			"INSERT INTO measure (name, range, unit) ".
-			"VALUES ('$this->name', '$this->range', '$this->unit')".
+			"VAlUES ('$this->name', '$this->range', '$this->unit')";
 		query_insert_one($query_string);
 		DbUtil::switchRestore($saved_db);
 	}
@@ -6548,7 +6548,7 @@ function update_lab_RWOptions($config)
 
 	$saved_db = DbUtil::switchToGlobal();
 	$query_string = 
-	"UPDATE user_config ".
+	"UPDATE user ".
 	"SET value='$config'".
 	"WHERE level=17 and lab_config_id = ".$_SESSION['lab_config_id']." and parameter = 'rwoptions'";
 	query_blind($query_string);	
@@ -8146,11 +8146,6 @@ function checkAndAddAdmin($adminName, $labConfigId) {
 		$query_insert = "INSERT INTO user (user_id, username, password, created_by, lab_config_id, level, lang_id) ".
 						"VALUES ($newAdminUserId, '$adminName', '18865bfdeed2fd380316ecde609d94d7285af83f', $userId, '$labConfigId', 2, 'default') ";
 		query_insert_one($query_insert);
-		$query_string = 
-			"INSERT INTO user_config(user_id, level, parameter, value, created_by, created_on, modified_by, modified_on) ".
-			"VALUES ($newAdminUserId, 2, 'rwoptions', '2,3,4,6,7', $userId, curdate(), $userId, curdate())";
-		query_insert_one($query_string);
-
 		DbUtil::switchRestore($saved_db);
 		return $newAdminUserId;
 	}	
@@ -9508,8 +9503,8 @@ function add_measure($measure, $range, $unit)
 	$unit = mysql_real_escape_string($unit, $con);
 	$saved_db = DbUtil::switchToLabConfigRevamp();
 	$query_string = 
-		"INSERT INTO measure(name, range, unit) ".
-		"VALUES ('$measure', '$range', '$unit')";
+		"INSERT INTO measure(`name`, `range`, `unit`) ".
+		"vALUES ('$measure', '$range', '$unit')";
 	query_insert_one($query_string);
 	# Return primary key of the record just inserted
 	DbUtil::switchRestore($saved_db);
@@ -9532,9 +9527,9 @@ function get_specimen_types_catalog($lab_config_id=null, $reff=null)
         }
         //-NC3065
 
-	if($lab_config_id == null)
-		return;
-	else
+	//if($lab_config_id == null)
+		//return;
+	//else
 		$saved_db = DbUtil::switchToLabConfig($lab_config_id);
 	$query_stypes =
 		"SELECT specimen_type_id, name FROM specimen_type WHERE disabled=0 ORDER BY name";
@@ -9565,8 +9560,8 @@ function get_test_types_catalog($lab_config_id=null, $reff=null)
             $lab_config_id = $user->labConfigId;
         }
         //-NC3065
-	if($lab_config_id == null)
-		return;
+	//if($lab_config_id == null)
+		//return;
 	//else
 		$saved_db = DbUtil::switchToLabConfig($lab_config_id);
 	$query_ttypes =
@@ -10635,7 +10630,8 @@ function get_measure_range($measure_id)
 	$saved_db = DbUtil::switchToLabConfigRevamp();
 	# Returns range specified for the measure
 	$query_string =
-		"SELECT range FROM measure WHERE measure_id=$measure_id LIMIT 1";
+		"SELECT range FROM measure WHERE measure_id=$measure_id L
+IMIT 1";
 	$record = query_associative_one($query_string);
 	DbUtil::switchRestore($saved_db);
 	return $record['range'];
@@ -11508,7 +11504,7 @@ class GlobalMeasure
 		$saved_db = DbUtil::switchToLabConfigRevamp();
 		$query_string = 
 			"INSERT INTO measure (name, range, unit) ".
-			"VALUES ('$this->name', '$this->range', '$this->unit')".
+			"VaLUES ('$this->name', '$this->range', '$this->unit')";
 		query_insert_one($query_string);
 		DbUtil::switchRestore($saved_db);
 	}

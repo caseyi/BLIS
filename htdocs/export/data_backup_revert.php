@@ -77,7 +77,10 @@ system($command,$return);
 echo $return;
 
 $langdata_dir = "../../".$backup_folder."/langdata_".$lab_config_id;
-chmod("../../dbdir/", 777);
+// BS 20160303 http://dev.trainingdata.org/redmine/issues/173 - "Backup function doesn't work"
+// PHP's chmod() function expects octal numbers for UNIX permissions - use a leading 0
+// previous 0777 permissions are also a security hole.
+chmod("../../dbdir/", 0755);
 
 if($do_langdata === true)
 	dir_copy($langdata_dir, "../../local/langdata_".$lab_config_id);

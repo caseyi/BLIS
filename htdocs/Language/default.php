@@ -205,8 +205,7 @@ $LANG_ARRAY = array (
 		"USER_FUNCTIONS" => "Functions", 
 		"APPROX" => "approximate", 
 		"LANDSCAPE" => "Landscape mode",
-		"TIPS_PATIENTID_EXISTS"=>"Patient ID already exist. Look up for patient to confirm and register specimen",
-		"ADD_USER_TYPE" => "Add New User Type"
+		"TIPS_PATIENTID_EXISTS"=>"Patient ID already exist. Look up for patient to confirm and register specimen"
 	) , 
 	"header" => array ( 
 		"TITLE" => "", 
@@ -255,7 +254,7 @@ $LANG_ARRAY = array (
 		"CMD_VIEWPROFILE" => "View Profile",
 		"CMD_DELPROFILE" => "Delete Profile",
 		"CMD_UPDPROFILE" => "Update Profile"
-	) , 
+	) ,
 		"doctor_register" => array (
 				"TITLE" => "Patient Look-up",
 				"ADD_NEW_PATIENT" => "Add New Patient",
@@ -681,8 +680,8 @@ $LANG_ARRAY = array (
 		"TIPS_SEARCH_2" => "Once you select the patient, you can view the patient's profile, look up the tests he has undergone and the results of those tests.",
 		"TIPS_SEARCH_3" => "-", 
 		"MENU_INVENTORY" => "Inventory", 
-		"TIPS_INVENTORY_1" => "This page displays the current item quantities in stock.", 
-		"TIPS_INVENTORY_2" => "You can update stock as you acquire new ietms by adding the item name,quantity received, receiver name and remarks.", 
+		"TIPS_INVENTORY_1" => "This page displays the current Item quantities in stock.", 
+		"TIPS_INVENTORY_2" => "You can update stock as you acquire new items by adding the item name,quantity received, receiver name and remarks.", 
 		"TIPS_INVENTORY_3" => "-", 
 		"MENU_REPORTS" => "Reports", 
 		"MENU_DAILYREPORTS" => "Daily Reports", 

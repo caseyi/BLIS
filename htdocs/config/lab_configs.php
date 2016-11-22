@@ -11,12 +11,17 @@ if( !(isCountryDir(get_user_by_id($_SESSION['user_id'])) && in_array(basename($_
 	&& !(isSuperAdmin(get_user_by_id($_SESSION['user_id'])) && in_array(basename($_SERVER['PHP_SELF']), $superAdminPageList)) )
 	header( 'Location: home.php' );
 
+file_put_contents('php_debug.log', 'getQuestionDropdownOption()2 >'.PHP_EOL, FILE_APPEND | LOCK_EX);    ob_start();
+#var_dump("result=", $result, "END");
+$toss = ob_get_clean(); file_put_contents('php_debug.log', $toss .PHP_EOL, FILE_APPEND | LOCK_EX);
+
 include("redirect.php");
 include("includes/user_lib.php");
 
 if(User::onlyOneLabConfig($_SESSION['user_id'], $_SESSION['user_level']))
 {
 	$lab_config_list = get_lab_configs($_SESSION['user_id']);
+#        $lab_config_list = get_lab_configs(127);
 	header("location:lab_config_home.php?id=".$lab_config_list[0]->id);
 }
 include("includes/header.php");
