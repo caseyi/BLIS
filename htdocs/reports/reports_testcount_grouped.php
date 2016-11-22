@@ -93,34 +93,6 @@ function print_content(div_id)
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type='button' onclick="javascript:window.close();" value='<?php echo LangUtil::$generalTerms['CMD_CLOSEPAGE']; ?>'></input>
 </form>
-<<<<<<< HEAD
-=======
-<form name='csv_format_form' id='csv_format_form' action='export_csv.php' method='post' target='_blank'> 
-	<input type='hidden' name='csv_data' id='csv_data'>
-</form>
-<input type='radio' name='do_landscape' value='N' <?php
-	//if($report_config->landscape == false) echo " checked ";
-	echo " checked ";
-?>>Portrait</input>
-&nbsp;&nbsp;
-<input type='radio' name='do_landscape' value='Y' <?php
-	//if($report_config->landscape == true) echo " checked ";
-?>><?php echo LangUtil::$generalTerms['LANDSCAPE_TYPE']; ?></input>&nbsp;&nbsp;
-
-<input type='button' onclick="javascript:print_content('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_PRINT']; ?>'></input>
-&nbsp;&nbsp;
-<!-- <input type='button' onclick="javascript:export_as_word('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTWORD']; ?>'></input> -->
-&nbsp;&nbsp;
-<input type='button' onclick="javascript:export_as_pdf('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTPDF']; ?>'></input>
-&nbsp;&nbsp;
-<!--input type='button' onclick="javascript:export_as_txt('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTTXT']; ?>'></input>
-&nbsp;&nbsp;-->
-<input type='button' onclick="javascript:export_as_csv('report_content_header', 'report_content_table1');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTCSV']; ?>'></input>
-&nbsp;&nbsp;
-<!-- <input type='button' onclick="javascript:window.close();" value='<?php echo LangUtil::$generalTerms['CMD_CLOSEPAGE']; ?>'></input> -->
-&nbsp;&nbsp;
-
->>>>>>> 8b8203b... Translation to French
 <hr>
 
 <div id='report_content'>
@@ -619,7 +591,6 @@ $table_css = "style='padding: .3em; border: 1px black solid; font-size:14px;'";
 
 </div>
 <?php
-<<<<<<< HEAD
 }
 else
 {
@@ -640,24 +611,6 @@ echo "<br><br><table><tr><td>";
 echo "Section: </td><td>".$sec_name."</td></tr></table>";
                                
 
-=======
-	if ($result){
-		echo '<thead><tr>';
-		echo '<th>'.LangUtil::$generalTerms['SECTION'].'</th>';
-		echo '<th>'.LangUtil::$generalTerms['TEST'].'</th>';
-		echo '<th>'.LangUtil::$generalTerms['GENDER'].'</th>';
-		echo '<th>'.LangUtil::$generalTerms['TEST_STATUS'].'</th>';
-		for ($counter=4; $counter<mysql_num_fields($result)-1; $counter++){
-			echo '<th>'.mysql_field_name($result, $counter).'</th>';
-		}
-		echo '<th>'.LangUtil::$pageTerms['TOTAL_TESTS'].'</th>';
-		echo '</tr></thead><tbody>';
-		while($row = mysql_fetch_assoc($result)){
-			echo '<tr><td>'.implode($row, '</td><td>').'</tr>';
-		}
-		echo '</tbody>';
-	}
->>>>>>> 8b8203b... Translation to French
 ?>
 
 <br>

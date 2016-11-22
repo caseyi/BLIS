@@ -53,7 +53,6 @@ $script_elems->enableLatencyRecord();
 			$('#current_inventory').tablesorter();
 	});
 
-<<<<<<< HEAD
 function getBarcodeSearchResults()
 {
     var code = $('#barcode_search_field').val();
@@ -69,58 +68,35 @@ function getBarcodeSearchResults()
 }
 </script>
 <p style="text-align: right;"><a rel='facebox' href='#view_stocks_help'>Page Help</a></p>
-=======
-<!-- BEGIN PAGE TITLE & BREADCRUMB-->		
-						<h3>
-						</h3>
-						<ul class="breadcrumb">
-							<li>
-								<i class="icon-truck"></i>
-								<a href="index.php"><?php echo LangUtil::$allTerms['Inventory']; ?></a> 
-							</li>
-						</ul>
-						<!-- END PAGE TITLE & BREADCRUMB-->
-					</div>
-				</div>
-				<!-- END PAGE HEADER-->
- 				<!-- BEGIN REGISTRATION PORTLETS-->   
-<div class="row-fluid">
-<div class="span12 sortable">
-<p style="text-align: right;"><a rel='facebox' href='#view_stocks_help'><?php echo LangUtil::$generalTerms['PAGE_HELP']; ?></a></p>
->>>>>>> 8b8203b... Translation to French
 <div id="barcodeSearch" >
-<?php echo LangUtil::$generalTerms['BARCODE_SCAN_SEARCH']; ?>: <input type="text" id="barcode_search_field" name="barcode_search_field" />
-<input type="button" id="barcode_search_button" name="barcode_search_button" value="<?php echo LangUtil::$generalTerms['CMD_SEARCH']; ?>" onclick='getBarcodeSearchResults()' /> <div id="error_empty" style="display: none;"><small>&nbsp;<?php echo LangUtil::$generalTerms['CANNOT_BE_EMPTY']; ?></small></div>    
+Barcode Scan Search: <input type="text" id="barcode_search_field" name="barcode_search_field" />
+<input type="button" id="barcode_search_button" name="barcode_search_button" value="Search" onclick='getBarcodeSearchResults()' /> <div id="error_empty" style="display: none;"><small>&nbsp;Cannot be empty</small></div>    
 <div id="barcode_search_result">
 
 </div>
 
 </div>
 <br>
-<<<<<<< HEAD
 <a href='inv_new_reagent.php'> <?php echo "Add Item" ; ?></a> &nbsp;|&nbsp;<a href='generate_barcode.php'> <?php echo "Generate Barcodes" ; ?></a> &nbsp;| &nbsp;<b> <?php echo LangUtil::$pageTerms['Current_Inventory']; ?></b>
-=======
-<a href='inv_new_reagent.php'> <?php echo LangUtil::$generalTerms['ADD_REAGENT']; ?></a> &nbsp;|&nbsp;<a href='generate_barcode.php'> <?php echo LangUtil::$generalTerms['GENERATE_BARCODES']; ?></a> &nbsp;| &nbsp;<b> <?php echo LangUtil::$pageTerms['Current_Inventory']; ?></b>
->>>>>>> 8b8203b... Translation to French
 <table class='tablesorter' id='current_inventory'  style='width:600px'>
 	<thead>
 		<tr align='center'>
 			<th> <?php echo LangUtil::$pageTerms['Reagent']; ?></th>
 			<th> <?php echo LangUtil::$pageTerms['Quantity']; ?></th>
-                        <th><?php echo LangUtil::$generalTerms['UNIT']; ?></th>
+                        <th><?php echo "Unit"; ?></th>
                         <?php if($view_update == 1){ ?>
                         <th><?php 
-                            echo LangUtil::$generalTerms['CMD_UPDATE'];
+                            echo "Update";
                             ?></th>
                         <?php } ?>
                         <?php if($view_add == 1){ ?>
                         <th><?php 
-                            echo LangUtil::$generalTerms['CMD_ADD'];
+                            echo "Add";
                             ?></th>
                         <?php } ?>
                         <?php if($view_edit == 1){ ?>
                         <th><?php 
-                            echo LangUtil::$generalTerms['CMD_EDIT'];
+                            echo "Edit";
                             ?></th>
                         <?php } ?>
                        

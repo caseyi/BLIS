@@ -31,7 +31,6 @@ function specimen_list_to_json($specimen_list)
 	return list_to_json($assoc_list, $json_params);
 }
 ?>
-<<<<<<< HEAD
 
 <br>
 <?php
@@ -42,48 +41,6 @@ $page_elems->getSideTip("Tips", $tips_string);
 ?>
 <b><?php echo LangUtil::$pageTerms['EDIT_TEST_TYPE']; ?></b>
 | <a href="catalog.php?show_t=1"><?php echo LangUtil::$generalTerms['CMD_CANCEL']; ?></a>
-=======
-<!-- BEGIN PAGE TITLE & BREADCRUMB-->       
-                        <h3>
-                        </h3>
-                        <ul class="breadcrumb">
-                            <li>
-                                <i class="icon-download-alt"></i>
-                                <a href="index.php"><?php echo LangUtil::$generalTerms['HOME']; ?></a> 
-                            </li>
-                        </ul>
-                        <!-- END PAGE TITLE & BREADCRUMB-->
-                    </div>
-                </div>
-                <!-- END PAGE HEADER-->
-                <!-- BEGIN REGISTRATION PORTLETS-->   
-                <div class="row-fluid">
-                <div class="span12 sortable">
-     
-<?php
-//$tips_string=LangUtil::$pageTerms['TIPS_MEASURES'];
-//$tips_string = LangUtil::$pageTerms['TIPS_CATALOG'];
-?>
-<div id='test_types_div' class='content_div'>
-    <div class="portlet box green">
-		<div class="portlet-title">
-			<h4><i class="icon-reorder"></i><?php echo LangUtil::$pageTerms['EDIT_TEST_TYPE']; ?></h4>
-			<div class="tools">
-				<a href="javascript:;" class="collapse"></a>
-				<a href="javascript:;" class="reload"></a>
-				
-			</div>
-		</div>
-		<div class="portlet-body">
-		<div id='sdel_msg' class='clean-orange' style='display:none;'>
-			<?php echo LangUtil::$generalTerms['MSG_DELETED']; ?>&nbsp;&nbsp;<a href="javascript:toggle('tcdel_msg');"><?php echo LangUtil::$generalTerms['CMD_HIDE']; ?></a>
-		</div>
-		<a href="catalog.php?show_t=1"><?php echo LangUtil::$generalTerms['CMD_CANCEL']; ?></a>
-<?php 
-$page_elems->getSideTip(LangUtil::$generalTerms['TIPS'], LangUtil::$generalTerms['TIPS_TEST_TYPE_EDIT_1']);
- ?>
-
->>>>>>> 8b8203b... Translation to French
 <br><br>
 
 <?php
@@ -157,7 +114,6 @@ $measure_list_objs = $test_type->getMeasures();
 # Display test type info table
 $page_elems->getTestTypeInfo($test_type->name, true);
 ?>
-<<<<<<< HEAD
 <script type='text/javascript'>
 
 var num_submeasures = new Array(100);
@@ -858,15 +814,6 @@ function isInputCurrency(evt) {
 <input type='hidden' name='ispanel' value='<?php if($test_type->isPanel === true) echo "1"; else echo "0"; ?>'></input>
 <input type='hidden' name='tid' id='tid' value='<?php echo $_REQUEST['tid']; ?>'></input>
 	<table cellspacing='4px'>
-=======
-    <div class="portlet-title" style="width: 380px">
-        <h4></i><?php echo LangUtil::$generalTerms['EDIT_TEST']; ?></h4>
-    </div>
-    <form name='edit_ttype_form' id='edit_ttype_form' action='ajax/test_type_update.php' method='post' class='form-horizontal'>
-	<input type='hidden' name='ispanel' value='<?php if($test_type->isPanel === true) echo "1"; else echo "0"; ?>'></input>
-	<input type='hidden' name='tid' id='tid' value='<?php echo $_REQUEST['tid']; ?>'></input>
-	<table cellspacing='4px' class="table table-bordered table-hover">
->>>>>>> 8b8203b... Translation to French
 		<tbody>
 			<tr valign='top'>
 				<td><?php echo LangUtil::$generalTerms['NAME']; ?><?php $page_elems->getAsterisk(); ?></td>
@@ -892,7 +839,7 @@ function isInputCurrency(evt) {
 			</tr>
 		<tr valign='top'>
 		
-		<td><?php echo LangUtil::$generalTerms['CLINICAL_DATA']; ?> [<a href='#clinical_help' rel='facebox'>?</a>] </td><td>
+		<td>Clinical Data  [<a href='#clinical_help' rel='facebox'>?</a>] </td><td>
 		
 			<?php 
 			$data=$test_type->clinical_data;
@@ -940,15 +887,9 @@ function isInputCurrency(evt) {
 				</td>
 			</tr>
 			</table>
-<<<<<<< HEAD
 			<input type="button" value="Add Row" onclick="addRowToTable();" />
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="button" value="Remove Row" onclick="removeRowFromTable();" />
-=======
-			<input type="button" class='btn green' value="<?php echo LangUtil::$generalTerms['ADD_ROW']; ?>" onclick="addRowToTable();" />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" class='btn grey' value="<?php echo LangUtil::$generalTerms['REMOVE_ROW']; ?>" onclick="removeRowFromTable();" />
->>>>>>> 8b8203b... Translation to French
 			</div>
 		</td>
 		
@@ -973,11 +914,11 @@ function isInputCurrency(evt) {
 					<td>
 						<table id='new_measure_list' class='smaller_font'>
 							<tr>
-								<td><u><?php echo LangUtil::$generalTerms['CMD_DELETE']; ?></u></td>
+								<td><u>Delete</u></td>
 								<td><u><?php echo LangUtil::$generalTerms['NAME']; ?></u><?php $page_elems->getAsterisk(); ?></td>
 								<td><u><?php echo LangUtil::$generalTerms['TYPE']; ?></u><?php $page_elems->getAsterisk(); ?></td>
 								<td><u><?php echo LangUtil::$generalTerms['VALUES']; ?></u><?php $page_elems->getAsterisk(); ?></td>
-								<td><u><?php echo LangUtil::$generalTerms['UNIT']; ?> /<?php echo LangUtil::$generalTerms['DEFAULT_VALUE']; ?></u>[<a href='#unit_help' rel='facebox'>?</a>]</td>
+								<td><u><?php echo LangUtil::$generalTerms['UNIT']; ?> /Default Value</u>[<a href='#unit_help' rel='facebox'>?</a>]</td>
 							</tr>
 							<?php
 							$max_num_measures = count($measure_list);
@@ -1093,11 +1034,7 @@ function isInputCurrency(evt) {
 											<input type='text' class='range_field' name='age_u_<?php echo $i; ?>[]' value='100'/>
 											<br>
 											
-<<<<<<< HEAD
 										</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo LangUtil::$generalTerms['RANGE']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gender &nbsp;&nbsp;Age_Range
-=======
-										</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo LangUtil::$generalTerms['RANGE']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo LangUtil::$generalTerms['GENDER']; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Age_Range
->>>>>>> 8b8203b... Translation to French
 							<br>
 									<?php
 									}
@@ -1121,11 +1058,7 @@ function isInputCurrency(evt) {
 												
 										}
 										?>
-<<<<<<< HEAD
 										</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo LangUtil::$generalTerms['RANGE']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gender &nbsp;&nbsp;Age_Range
-=======
-										</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo LangUtil::$generalTerms['RANGE']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo LangUtil::$generalTerms['GENDER']; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Age_Range
->>>>>>> 8b8203b... Translation to French
 							<br>
 										<?php
 									}
@@ -1206,7 +1139,7 @@ function isInputCurrency(evt) {
 								echo "<input type='text' name='new_measure[]' value='' />";
                                                                 echo "<br>";
                                         ?>
-                                        <small><a id='new_submeasure_link' href='javascript:add_new_submeasure(<?php echo $i; ?>);'><?php echo LangUtil::$generalTerms['ADD_SUB_MEASURE']; ?> &raquo;</a></small>
+                                        <small><a id='new_submeasure_link' href='javascript:add_new_submeasure(<?php echo $i; ?>);'><?php echo 'Add Sub Measure'; ?> &raquo;</a></small>
                                         <?php
                                                                 
 								echo "</td>";
@@ -1232,7 +1165,7 @@ function isInputCurrency(evt) {
 											<input type='text' class='range_field agerange_u_<?php echo $i; ?>' name='new_agerange_u_<?php echo $i; ?>[]' id='new_agerange_u_<?php echo $i; ?>[]' value='100' />
 																
 											<br>
-								</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo LangUtil::$generalTerms['RANGE']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo LangUtil::$generalTerms['GENDER']; ?> &nbsp;&nbsp;Age_Range
+								</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo LangUtil::$generalTerms['RANGE']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gender &nbsp;&nbsp;Age_Range
 								<br>
 											<small><a href="javascript:add_new_range_field('<?php echo $i; ?>', 1);"><?php echo LangUtil::$generalTerms['ADDANOTHER']; ?> &raquo;</a></small>
 									<br><br>
@@ -1311,7 +1244,7 @@ function isInputCurrency(evt) {
                                                             <input type='text' class='range_field' name='agerange_u_<?php echo $i.$us.$y; ?>[]' id='agerange_u_<?php echo $i.$us.$y; ?>[]' value='100' />
                                                            
                                                     </span>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;<?php echo LangUtil::$generalTerms['RANGE']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo LangUtil::$generalTerms['GENDER']; ?> &nbsp;&nbsp;Age_Range
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;<?php echo LangUtil::$generalTerms['RANGE']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gender &nbsp;&nbsp;Age_Range
                                                             <br>
                                                     <small><a href="javascript:add_new_range_field('<?php echo $i.$us.$y; ?>', '0');"><?php echo LangUtil::$generalTerms['ADDANOTHER']; ?> &raquo;</a></small>
                                                     <br><br>
@@ -1375,7 +1308,7 @@ function isInputCurrency(evt) {
 			</tr>
 			
 			<tr valign='top'>
-				<td><?php echo LangUtil::$generalTerms['HIDE_PATIENT_NAME_IN_REPORT']; ?></td>
+				<td>Hide Patient Name in Report </td>
 				<td>
 					<select name="hidePatientName">
 						<?php if ( $test_type->hidePatientName == 0 ) { ?>
@@ -1390,7 +1323,6 @@ function isInputCurrency(evt) {
 			</tr>
 
 			<tr valign='top'>
-<<<<<<< HEAD
 				<td>Prevalence Threshold </td>
 				<td> <input id='prevalenceThreshold' name='prevalenceThreshold' type='text' size='3' maxLength='3' onkeypress="return isInputNumber(event);" value='<?php echo $test_type->prevalenceThreshold; ?>' /> 
 					<span id='prevalenceThresholdError' 
@@ -1398,31 +1330,17 @@ function isInputCurrency(evt) {
 					style='display:none;'>
  					<?php echo "Threshold Value cannot be more than 100"; ?>
                                         </span>
-=======
-				<td><?php echo LangUtil::$generalTerms['PREVAL_THRESHOLD']; ?></td>
-				<td><input id='prevalenceThreshold' class='span6 m-wrap' name='prevalenceThreshold' type='text' size='3' maxLength='3' onkeypress="return isInputNumber(event);" 
-				value=<?php if($test_type->prevalenceThreshold==null) {echo 0;} else echo $test_type->prevalenceThreshold; ?> />
-					<span id='prevalenceThresholdError' class='error_string' style='display:none;'>
-						<?php echo "Threshold Value cannot be more than 100"; ?>
-					</span>
->>>>>>> 8b8203b... Translation to French
 				</td>
 			</tr>
 
 			<tr valign='top'>
-<<<<<<< HEAD
 				<td>Target TAT</td>
 				<td><input id='targetTat' name='targetTat' type='text' size='3' maxLength='3' onkeypress="return isInputNumber(event);" value=<?php echo $test_type->targetTat; ?> />
-=======
-				<td><?php echo LangUtil::$pageTerms['MENU_TAT']; ?></td>
-				<td><input id='targetTat' name='targetTat' class='span6 m-wrap' type='text' size='3' maxLength='3' onkeypress="return isInputNumber(event);" 
-				value=<?php if($test_type->targetTat==null) {echo 0;} else echo $test_type->targetTat; ?> />
->>>>>>> 8b8203b... Translation to French
 				</td>
 			</tr>
 
 			<tr valign='top' <?php is_billing_enabled($_SESSION['lab_config_id']) ? print("") : print("style='display:none;'") ?>>
-				<td><?php echo LangUtil::$generalTerms['COST_PATIENT']; ?></td>
+				<td>Cost to Patient</td>
 
 				<input type="hidden" name='cost_to_patient_dollars_old' value='<?php echo $cost_to_patient_dollars; ?>' />
 				<input type="hidden" name='cost_to_patient_cents_old' value='<?php echo $cost_to_patient_cents; ?>' />
@@ -1472,7 +1390,7 @@ For e.g., if test results can be either one from 'P','N' or 'D', please enter 'P
 </div>
 <div id='clinical_help' style='display:none'>
 <small>
-<u><?php echo LangUtil::$generalTerms['CLINICAL_DATA']; ?> </u> can be entered either in the table or text on both forms. If it is not requried please leave it blank.
+<u>Clinical Data </u> can be entered either in the table or text on both forms. If it is not requried please leave it blank.
 </small>
 </div>
 <div id='specimen_help' style='display:none'>

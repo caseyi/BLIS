@@ -9,60 +9,6 @@ include("barcode/barcode_lib.php");
 LangUtil::setPageId("patient_profile");
 
 
-<<<<<<< HEAD
-=======
-?>
-<!-- BEGIN PAGE TITLE & BREADCRUMB-->       
-                        <h3>
-                        </h3>
-                        <ul class="breadcrumb">
-                            <li>
-                                <i class="icon-download-alt"></i>
-                                <a href="index.php"><?php echo LangUtil::$generalTerms['HOME']; ?></a> 
-                            </li>
-                        </ul>
-                        <!-- END PAGE TITLE & BREADCRUMB-->
-                    </div>
-                </div>
-                <!-- END PAGE HEADER-->
-             <div class="row-fluid">
-                <div class="span12 sortable">
-
-                    <div class="portlet box green" id="patientprofile_div">
-                        <div class="portlet-title" >
-                            <h4><i class="icon-reorder"></i> <?php echo LangUtil::getTitle(); ?> </h4>           
-                        </div>
-                        
-                          <div class="portlet-body" >
-                          
-                            <a href='javascript:history.go(-1);'>&laquo; <?php echo LangUtil::$generalTerms['CMD_BACK']; ?></a>
-                            <br><br>
-                            <table clas="table">
-                            	<tr valign='top'>
-                            		<td>
-                            			<div id='profile_div'>
-                            				<?php $page_elems->getPatientInfo($pid); ?>
-                            			</div>
-                            			<div id='profile_update_div' style='display:none;' >
-                            			<link rel="stylesheet" type="text/css" media="all" href="jsdatepick-calendar/jsDatePick_ltr.min.css" />
-<script type="text/javascript" src="jsdatepick-calendar/jsDatePick.min.1.3.js"></script>
-<script type="text/javascript">
-	window.onload = function(){
-		new JsDatePick({
-			useMode:2,
-			target:"by_date",
-			dateFormat:"%Y-%m-%d"
-			
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"patient_b_day",
-			dateFormat:"%Y-%m-%d"
-			
-		});
-	};
-</script>
->>>>>>> 8b8203b... Translation to French
 
 putUILog('patient_profile', 'X', basename($_SERVER['REQUEST_URI'], ".php"), 'X', 'X', 'X');
 
