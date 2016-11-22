@@ -529,7 +529,8 @@ function update_ttype()
 		return;
 	}
 	$('#prevalenceThresholdError').hide();
-	if( $('#prevalenceThreshold').val() > 100 ) {
+	if( $('#prevalenceThreshold').val() > 100 ) 
+        {
 		$('#prevalenceThresholdError').show();
 		return;
 	}
@@ -1121,7 +1122,7 @@ function isInputCurrency(evt) {
 							# Space for adding new measures
 							//$max_num_measures = count($measure_list)
 							//echo count($measure_list);
-							$max_num_measures = 40 - count($measure_list);
+							$max_num_measures = 10 - count($measure_list);
 							for($i = count($measure_list)+1; $i <= $max_num_measures; $i += 1)
 							{
 								echo "<tr valign='top' id='new_mrow_$i' ";
@@ -1323,10 +1324,12 @@ function isInputCurrency(evt) {
 
 			<tr valign='top'>
 				<td>Prevalence Threshold </td>
-				<td><input id='prevalenceThreshold' name='prevalenceThreshold' type='text' size='3' maxLength='3' onkeypress="return isInputNumber(event);" value=<?php echo $test_type->prevalenceThreshold; ?> />
-					<span id='prevalenceThresholdError' class='error_string' style='display:none;'>
-						<?php echo "Threshold Value cannot be more than 100"; ?>
-					</span>
+				<td> <input id='prevalenceThreshold' name='prevalenceThreshold' type='text' size='3' maxLength='3' onkeypress="return isInputNumber(event);" value='<?php echo $test_type->prevalenceThreshold; ?>' /> 
+					<span id='prevalenceThresholdError' 
+					class='error_string' 
+					style='display:none;'>
+ 					<?php echo "Threshold Value cannot be more than 100"; ?>
+                                        </span>
 				</td>
 			</tr>
 

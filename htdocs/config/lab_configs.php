@@ -7,6 +7,10 @@
 #
 
 include("../users/accesslist.php");
+file_put_contents('php_debug.log', 'getQuestionDropdownOption()2 >'.PHP_EOL, FILE_APPEND | LOCK_EX);    ob_start();
+#var_dump("result=", $result, "END");
+$toss = ob_get_clean(); file_put_contents('php_debug.log', $toss .PHP_EOL, FILE_APPEND | LOCK_EX);
+
 include("redirect.php");
 include("includes/user_lib.php");
 

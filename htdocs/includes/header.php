@@ -152,7 +152,7 @@ if(isset($_SESSION['username']))
 		<?php
 	}
 	?>
-	<a rel='facebox' href='user_rating.php'><?php echo LangUtil::getPageTerm("LOGOUT"); ?></a>
+	<a href='logout.php'><?php echo LangUtil::getPageTerm("LOGOUT"); ?></a>
 	
 	<?php
 	//if(User::onlyOneLabConfig($_SESSION['user_id'], $_SESSION['user_level']))

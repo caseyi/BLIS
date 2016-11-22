@@ -238,7 +238,8 @@ $script_elems->enableJQueryForm();
 
 <?php
 
-$lab_config_id = $_REQUEST['id'];
+$lab_config_id = $_SESSION['lab_config_id'];
+#$lab_config_id = $_REQUEST['id'];
 $user = get_user_by_id($_SESSION['user_id']);
 if ( !((is_country_dir($user)) || (is_super_admin($user)) ) ) {
 	$saved_db = DbUtil::switchToGlobal();

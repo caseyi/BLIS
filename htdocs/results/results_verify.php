@@ -185,6 +185,8 @@ if(count($test_list) == 0)
 			$measure_count = 1;
 			foreach($measure_list as $measure)
 			{
+echo "<td><input type='text' name='measure_".$measure_count."[]' value='".$result_csv[$measure_count-1]."'></input>";
+/*
 				if(strpos($measure->range, ":") != false)
 				{
 					# Continuous value range
@@ -223,6 +225,7 @@ if(count($test_list) == 0)
 					</td>
 					<?php
 				}
+*/
 				$measure_count++;
 			}
 			?>

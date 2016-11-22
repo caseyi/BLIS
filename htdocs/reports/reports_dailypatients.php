@@ -49,12 +49,22 @@ for($i = 0; $i < count($margin_list); $i++)
 	$margin_list[$i] = ($SCREEN_WIDTH * $margin_list[$i] / 100);
 }
 ?>
+<script type="text/javascript" src="js/table2CSV.js"></script>
 <script type='text/javascript'>
 function export_as_word(div_id)
 {
 	var content = $('#'+div_id).html();
 	$('#word_data').attr("value", content);
 	$('#word_format_form').submit();
+}
+
+//TA:65
+function export_as_csv(table_id, table_id2)
+{
+	// BS - http://dev.trainingdata.org/redmine/issues/174 - replace &nbsp; in output
+	var content = 'Reported\n' + $('#'+table_id).table2CSV({delivery:'value'}).replace(/&nbsp;/gi, '') + '\nUnreported\n' + $('#'+table_id2).table2CSV({delivery:'value'}).replace(/&nbsp;/gi, '');
+	$("#csv_data").val(content);
+	$('#csv_format_form').submit();
 }
 
 function print_content(div_id)
@@ -75,10 +85,15 @@ function print_content(div_id)
 
 $(document).ready(function(){
 	$('#report_content_table5').tablesorter();
+	$('#report_content_table6').tablesorter(); //TA:65
 });
 </script>
 <form name='word_format_form' id='word_format_form' action='export_word.php' method='post' target='_blank'>
 	<input type='hidden' name='data' value='' id='word_data' />
+</form>
+<!--TA:65 -->
+<form name='csv_format_form' id='csv_format_form' action='export_csv.php' method='post' target='_blank'> 
+	<input type='hidden' name='csv_data' id='csv_data'>
 </form>
 <input type='radio' name='do_landscape' value='N' <?php
 	if($report_config->landscape == false) echo " checked ";
@@ -90,6 +105,9 @@ $(document).ready(function(){
 <input type='button' onclick="javascript:print_content('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_PRINT']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <input type='button' onclick="javascript:export_as_word('export_content');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTWORD']; ?>'></input>
+<!--TA:65 -->
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type='button' onclick="javascript:export_as_csv('report_content_table5', 'report_content_table6');" value='<?php echo LangUtil::$generalTerms['CMD_EXPORTCSV']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <input type='button' onclick="javascript:window.close();" value='<?php echo LangUtil::$generalTerms['CMD_CLOSEPAGE']; ?>'></input>
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -144,6 +162,8 @@ if( (count($patient_list) == 0 || $patient_list == null) && (count($patient_list
 <table class='print_entry_border draggable' id='report_content_table5'>
 <thead>
 	<tr valign='top'>
+		<!--TA:65-->
+		<th><?php echo "Visit No."; ?></th> 
 		<?php
 		if($report_config->usePatientId == 1)
 		{
@@ -166,7 +186,7 @@ if( (count($patient_list) == 0 || $patient_list == null) && (count($patient_list
 		if($report_config->usePatientName == 1)
 		{
 		?>
-			<th><?php echo LangUtil::$generalTerms['NAME']; ?></th>
+			<!--TA:65 <th><?php echo LangUtil::$generalTerms['NAME']; ?></th>-->
 		<?php
 		}
 		if($report_config->useAge == 1)
@@ -181,18 +201,16 @@ if( (count($patient_list) == 0 || $patient_list == null) && (count($patient_list
 			<th><?php echo LangUtil::$generalTerms['GENDER']; ?></th>
 		<?php
 		}
-		if($report_config->useDob == 1)
-		{
+		//TA:65 if($report_config->useDob == 1){
 		?>
 			<th><?php echo LangUtil::$generalTerms['DOB']; ?></th>
 		<?php 
-		}
-		if($report_config->useTest == 1)
-		{
+		//}
+		//TA:65 if($report_config->useTest == 1){
 		?>
 			<th><?php echo LangUtil::$generalTerms['TESTS']; ?></th>
 		<?php
-		}
+		//}
 		
 		# Patient Custom fields here
 		$custom_field_list = $lab_config->getPatientCustomFields();
@@ -253,6 +271,8 @@ if( (count($patient_list) == 0 || $patient_list == null) && (count($patient_list
 		$count++;
 		?>
 		<tr>
+		<!-- TA:65 -->
+		<td><?php echo $patient->getAddlId(); ?></td>
 		<?php
 		if($report_config->usePatientId == 1)
 		{
@@ -275,7 +295,7 @@ if( (count($patient_list) == 0 || $patient_list == null) && (count($patient_list
 		if($report_config->usePatientName == 1)
 		{
 		?>
-			<td class='rstyle'><?php echo $patient->name; ?></td>
+			<!--TA:65 <td><?php echo $patient->name; ?></td>-->
 		<?php
 		}
 		if($report_config->useAge == 1)
@@ -290,18 +310,16 @@ if( (count($patient_list) == 0 || $patient_list == null) && (count($patient_list
 			<td class='rstyle'><?php echo $patient->sex; ?></td>
 		<?php
 		}
-		if($report_config->useDob == 1)
-		{
+		//TA:65 if($report_config->useDob == 1){
 		?>
 			<td class='rstyle'><?php echo $patient->getDob(); ?></td>
 		<?php 
-		}
-		if($report_config->useTest == 1)
-		{
+		//}
+		//TA:65 if($report_config->useTest == 1){
 		?>
 			<td class='rstyle'><?php echo $patient->getAssociatedTests(); ?></td>
 		<?php
-		}
+		//}
 		
 		# Patient Custom fields here
 		$custom_field_list = $lab_config->getPatientCustomFields();
